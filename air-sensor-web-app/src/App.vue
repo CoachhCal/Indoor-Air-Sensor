@@ -1,10 +1,12 @@
 <script setup>
 import RecentAirData from './components/RecentAirData.vue'
+import Header from './components/Header.vue'
 
 </script>
 
 <template >
   <div class="page-wrapper">
+    <Header/>
     <RecentAirData/>
   </div>
 </template>
@@ -19,9 +21,9 @@ body {
 }
 
 .page-wrapper {
-  display: flex;
+  display: flex flex-column;
   justify-content: center; /* center horizontally */
-  padding-top: 300px;        /* push component down from top */
+  /* padding-top: 300px; */        /* push component down from top */
   min-height: 100vh;        /* ensure it takes full screen */
   box-sizing: border-box;
 }

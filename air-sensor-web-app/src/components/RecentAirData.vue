@@ -1,5 +1,17 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+
+import latestSensorData from '../composables/latestSensorData.js'
+
+const {
+  temperature,
+  humidity,
+  pressure,
+  gasResistance,
+  timeCreated,
+  loading
+} = latestSensorData()
+
+ /* import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
 const temperature = ref(null)
@@ -37,10 +49,8 @@ async function fetchRecentData() {
         console.log(temperature.value)
     } catch (err) {
         console.error("Failed to load data")
-    } finally {
-        loading.value = false
     }
-}
+} */
 
 
 
@@ -48,7 +58,7 @@ async function fetchRecentData() {
 
 
 <template>
-  <div class="grid grid-cols-1 max-w-[450px] md:grid-cols-2 md:h-[50vh] md:min-w-[300px] md:max-w-[650px] md:max-w-[1200px] 2xl:grid-cols-4 2xl:h-[25vh] 2xl:max-w-[1500px] mx-auto gap-4 p-5 border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl">
+  <div class="mt-[100px] grid grid-cols-1 max-w-[450px] md:mt-[300px] md:grid-cols-2 md:h-[50vh] md:min-w-[300px] md:max-w-[650px] md:max-w-[1200px] 2xl:grid-cols-4 2xl:h-[25vh] 2xl:max-w-[1500px] mx-auto gap-4 p-5 border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl">
     
     <div class="card">
         <p class="title">Temperature</p>
