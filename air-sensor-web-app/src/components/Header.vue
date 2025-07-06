@@ -12,8 +12,8 @@ const { timeCreated } = latestSensorData()
     <div class="header-container">
 
         <div class="flex gap-10  md:gap-20">
-            <a href="#" class="nav-title">Current Data</a>
-            <a href="#" class="nav-title">Analytics</a>
+            <RouterLink to="/" class="nav-title">Home</RouterLink>
+            <RouterLink to="/analytics" class="nav-title">Analytics</RouterLink>
         </div>
         <div class="flex justify-center text-center flex-row gap-x-5 mt-2 md:mt-0md:text-right md:ml-auto md:flex-col md:gap-x-0">
             <p class="text-yellow-500 text-xl md:text-md"> Last Updated </p> 
