@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from routes import insert_sensor_data, retrieve_recent_data
+from routes import insert_sensor_data, retrieve_recent_data, retrieve_all_data
 import paho.mqtt.client as mqtt
 import json
 from dotenv import load_dotenv
@@ -22,6 +22,13 @@ latest_payload = {
 @app.route("/api/sensors/latest", methods=["GET"])
 def get_recent_sensor_data():
     data = retrieve_recent_data()
+    if "error" in data or "message" in data:
+        return jsonify(data), 404
+    return jsonify(data), 200
+
+@app.route("/api/sensors/all-data", methods=["GET"])
+def get_all_sensor_data():
+    data = retrieve_all_data()
     if "error" in data or "message" in data:
         return jsonify(data), 404
     return jsonify(data), 200

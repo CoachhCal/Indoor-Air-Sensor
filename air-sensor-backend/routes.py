@@ -92,6 +92,31 @@ def retrieve_recent_data():
     except Exception as e:
         print(f"Error retrieving recent data: {e}")
         return {"error": str(e)}
+    
+def retrieve_all_data():
+    try:
+        with Session() as session:
+            records = (
+                session.query(Data)
+                .order_by(Data.created_at.asc())
+                .all()
+            )
+
+            if records:
+                return {
+                    "timestamps": [r.created_at.isoformat() for r in records],
+                    "temperature": [r.temperature for r in records],
+                    "humidity": [r.humidity for r in records],
+                    "pressure": [r.pressure for r in records],
+                    "gas_resistance": [r.gas_resistance for r in records]
+                }
+            
+            else:
+                return {"message": "No data found"}
+            
+    except Exception as e:
+        print(f"Error retrieving all data: {e}")
+        return {"error": str(e)}
 
 
 
