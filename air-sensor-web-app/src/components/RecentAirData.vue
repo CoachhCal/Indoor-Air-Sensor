@@ -11,49 +11,6 @@ const {
   loading
 } = latestSensorData()
 
- /* import { ref, onMounted } from 'vue'
-import axios from 'axios'
-
-const temperature = ref(null)
-const humidity = ref(null)
-const pressure = ref(null)
-const gasResistance = ref(null)
-const timeCreated = ref(null)
-const rawDateCreated = ref(null)
-
-const loading = ref(true)
-
-const options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-}
-
-onMounted(async () => {
-    fetchRecentData()
-    setInterval(fetchRecentData, 900000)
-})
-
-async function fetchRecentData() {
-    try {
-        const res = await axios.get('http://localhost:5000/api/sensors/latest')
-        temperature.value = Math.round(res.data.temperature)
-        humidity.value = Math.round(res.data.humidity)
-        pressure.value = Math.round(res.data.pressure)
-        gasResistance.value = Math.round(Number(res.data.gas_resistance))
-        rawDateCreated.value = res.data.created_at
-        timeCreated.value = new Date(rawDateCreated.value).toLocaleString('en-US', options);
-        console.log(temperature.value)
-    } catch (err) {
-        console.error("Failed to load data")
-    }
-} */
-
-
-
 </script>
 
 
