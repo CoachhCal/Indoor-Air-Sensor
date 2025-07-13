@@ -1,6 +1,6 @@
 <script setup>
 
-import RecentAirData from '@/components/RecentAirData.vue'
+import Graphed from '@/components/Graphed.vue'
 
 </script>
 
@@ -8,7 +8,7 @@ import RecentAirData from '@/components/RecentAirData.vue'
 <template>
 
     <div>
-        hey
+        <Graphed/>
     </div>
 
 </template>
