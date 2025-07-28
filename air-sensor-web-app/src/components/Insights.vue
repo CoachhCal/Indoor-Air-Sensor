@@ -92,20 +92,20 @@ const minMaxValue = computed(() => {
 
         <div class="block">
             <p> Average {{metricStore.label}} </p>
-            <p> {{averageValue}} </p>
+            <p > {{averageValue}} </p>
             
         </div>
 
         <div class="block">
-            <p> Maximum {{metricStore.label}} </p>
+            <p> Highest {{metricStore.label}} </p>
             <p> {{minMaxValue.max}} </p>
-            <p> {{minMaxValue.maxDate}} </p>
+            <p class="date"> {{minMaxValue.maxDate}} </p>
         </div>
 
         <div class="block">
-            <p> Minimum {{metricStore.label}} </p>
+            <p> Lowest {{metricStore.label}} </p>
             <p> {{minMaxValue.min}} </p>
-            <p> {{minMaxValue.minDate}} </p>
+            <p class="date"> {{minMaxValue.minDate}} </p>
         </div>
 
     </div>
@@ -117,11 +117,15 @@ const minMaxValue = computed(() => {
 <style scoped>
 
 .container {
-    @apply flex justify-between p-5 border-2 border-red-500
+    @apply flex justify-between p-5 border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl
 }
 
 .block {
     @apply flex flex-col w-1/3 m-2 border-2 border-blue-500 text-white items-center
+}
+
+.date {
+    @apply text-xl
 }
 
 </style>

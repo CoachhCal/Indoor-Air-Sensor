@@ -1,8 +1,11 @@
 <script setup>
 
 import { useMetricStore } from '@/stores/selectedMetric'
+import { computed } from 'vue'
 
 const metricStore = useMetricStore()
+
+const selectedMetric = computed(() => metricStore.metric)
 
 function onSelectChange(e) {
     console.log(e.target.value)
@@ -15,10 +18,33 @@ function onSelectChange(e) {
 
     <div class="container">
 
-        <button @click="onSelectChange" value="temperature" class="metrics">Temperature</button>
-        <button @click="onSelectChange" value="humidity" class="metrics">Humidity</button>
-        <button @click="onSelectChange" value="pressure" class="metrics">Pressure</button>
-        <button @click="onSelectChange" value="gasResistance" class="metrics">Gas Resistance</button>
+        <button
+            @click="onSelectChange"
+            value="temperature"
+            class="metrics"
+            :class="metricStore.metric === 'temperature' ? 'text-yellow-500' : 'text-white'"
+        >Temperature</button>
+
+        <button
+            @click="onSelectChange"
+            value="humidity" 
+            class="metrics"
+            :class="selectedMetric === 'humidity' ? 'text-yellow-500' : 'text-white'"
+        >Humidity</button>
+
+        <button
+            @click="onSelectChange"
+            value="pressure"
+            class="metrics"
+            :class="selectedMetric === 'pressure' ? 'text-yellow-500' : 'text-white'"
+        >Pressure</button>
+
+        <button
+            @click="onSelectChange"
+            value="gasResistance"
+            class="metrics"
+            :class="selectedMetric === 'gasResistance' ? 'text-yellow-500' : 'text-white'"
+        >Gas Resistance</button>
 
     </div>
 
@@ -31,7 +57,7 @@ function onSelectChange(e) {
 }
 
 .metrics {
-    @apply text-white text-2xl
+    @apply text-2xl
 }
 
 .card {
