@@ -88,23 +88,23 @@ const minMaxValue = computed(() => {
 
 <template>
 
-    <div class="container">
+    <div class="insight-wrapper">
 
         <div class="block">
-            <p> Average {{metricStore.label}} </p>
-            <p > {{averageValue}} </p>
+            <p class="title"> Average {{metricStore.label}} </p>
+            <p class="desc"> {{averageValue}} </p>
             
         </div>
 
         <div class="block">
-            <p> Highest {{metricStore.label}} </p>
-            <p> {{minMaxValue.max}} </p>
+            <p class="title"> Highest {{metricStore.label}} </p>
+            <p class="desc"> {{minMaxValue.max}} </p>
             <p class="date"> {{minMaxValue.maxDate}} </p>
         </div>
 
         <div class="block">
-            <p> Lowest {{metricStore.label}} </p>
-            <p> {{minMaxValue.min}} </p>
+            <p class="title"> Lowest {{metricStore.label}} </p>
+            <p class="desc"> {{minMaxValue.min}} </p>
             <p class="date"> {{minMaxValue.minDate}} </p>
         </div>
 
@@ -116,16 +116,24 @@ const minMaxValue = computed(() => {
 
 <style scoped>
 
-.container {
-    @apply flex justify-between p-5 border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl
+.insight-wrapper {
+    @apply flex justify-between min-h-[300px] pt-0 ps-5 pe-5 pb-5
 }
 
 .block {
     @apply flex flex-col w-1/3 m-2 border-2 border-blue-500 text-white items-center
 }
 
+.title {
+    @apply text-2xl m-2
+}
+
+.desc {
+    @apply text-4xl m-2
+}
+
 .date {
-    @apply text-xl
+    @apply text-xl m-2
 }
 
 </style>

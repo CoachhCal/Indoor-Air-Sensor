@@ -35,9 +35,19 @@ watch([ () => metricStore.metric, timeStampsArray], () => {
     }
 
     const layout = {
-        title: {text: metricStore.label + ' Over Time'},
+        title: {
+            text: metricStore.label + ' Over Time',
+            font: {
+                size: 26
+            }
+        },
         xaxis: {
-            title: {text: 'Time'},
+            title: {
+                text: 'Time',
+                font: {
+                    size: 22
+                }
+            },
             type: 'date',
             range: [timeStampsArray.value[0], timeStampsArray.value[timeStampsArray.value.length - 1]],
             autorange: false,
@@ -46,14 +56,49 @@ watch([ () => metricStore.metric, timeStampsArray], () => {
                     { count: 1, label: '1d', step: 'day', stepmode: 'backward' },
                     { count: 7, label: '1w', step: 'day', stepmode: 'backward' },
                     { step: 'all', label: 'All' }
-                ]
+                ],
+                bgcolor: '#444',        
+                activecolor: '#1A7300',
             },
+            showgrid:true,
+            gridcolor: '#1C1C1C',
+            zeroline: true,
+            zerolinecolor: '#ffffff',
+            linecolor: '#aaa',
+            tickcolor: '#aaa'
             
         },
         yaxis: {
-            title: { text: metricStore.label},
-            autorange: true
+            title: {
+                text: metricStore.label,
+                font: {
+                    size: 22
+                }
+            },
+            autorange: true,
+            showgrid:true,
+            gridcolor: '#1C1C1C',
+            zeroline: true,
+            zerolinecolor: '#ffffff',
+            linecolor: '#aaa',
+            tickcolor: '#aaa'
+        },
+        plot_bgcolor: '#000000',
+        paper_bgcolor: '#000000',
+        font: {
+            color: 'white',
+        },
+        margin: {
+            l: 100,
+            b: 100,
         }
+        
+        
+    }
+
+    const config = {
+        responsive: true,
+        useResizeHandler: true
     }
 
     if (!timeStampsArray.value || !timeStampsArray.value.length || !yData?.length) {
@@ -62,7 +107,7 @@ watch([ () => metricStore.metric, timeStampsArray], () => {
 
 
 
-    Plotly.newPlot('plotly-chart', [trace], layout)
+    Plotly.newPlot('plotly-chart', [trace], layout, config)
 
 })
 
@@ -74,13 +119,28 @@ watch([ () => metricStore.metric, timeStampsArray], () => {
 
 
 <template>
-  <div id="plotly-chart" class="w-full h-full"></div>
+  <div class="container">
+
+    <div id="plotly-chart" class="chart-inner"></div>
+  
+  </div>
 </template>
 
 <style scoped>
+
     #plotly-chart {
-    width: 100%;
-    height: 100%;
+        width: 100%;
+        height: 100%;
     }
+
+    .container {
+        @apply flex w-full h-full p-5
+    }
+
+    .chart-inner {
+        width: 100%;
+        height: 100%;
+}
+
 </style>
 

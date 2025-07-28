@@ -18,6 +18,19 @@ export const useMetricStore = defineStore('selectedMetric', () => {
     
   })
 
+  const unit = computed(() => {
+
+    const units = {
+        temperature: '&degC',
+        humidity: '%',
+        pressure: 'hPa',
+        gasResistance: 'k&Omega'
+    }
+
+    return units[metric.value] || 'None'
+    
+  })
+
   function setMetric(newMetric) {
     metric.value = newMetric
   }

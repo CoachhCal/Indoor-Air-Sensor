@@ -9,25 +9,29 @@ import MetricSelect from '@/components/MetricSelect.vue'
 
 <template>
 
-    <div class="container">
 
-        <div class="metric">
-            <MetricSelect/>
+
+        <div class="parent-wrapper">
+
+            <div class="metric">
+                <MetricSelect/>
+            </div>
+
+            <div class="graph">
+                <Graphed/>
+                <Insights/>
+            </div>
+
         </div>
 
-        <div class="graph">
-            <Graphed/>
-            <Insights/>
-        </div>
 
-    </div>
 
 </template>
 
 <style>
 
-.container {
-    @apply flex flex-row mt-5 h-[90vh];
+.parent-wrapper {
+    @apply flex mt-5 flex-row h-[90vh];
 }
 
 .metric{
@@ -35,6 +39,6 @@ import MetricSelect from '@/components/MetricSelect.vue'
 }
 
 .graph {
-    @apply flex flex-col w-[80%]
+    @apply flex flex-col w-[80%] border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl
 }
 </style>
