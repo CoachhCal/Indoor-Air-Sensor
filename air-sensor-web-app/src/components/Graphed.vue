@@ -119,7 +119,7 @@ watch([ () => metricStore.metric, timeStampsArray], () => {
 
 
 <template>
-  <div class="container">
+  <div class="graph-container">
 
     <div id="plotly-chart" class="chart-inner"></div>
   
@@ -133,8 +133,8 @@ watch([ () => metricStore.metric, timeStampsArray], () => {
         height: 100%;
     }
 
-    .container {
-        @apply flex w-full h-full p-5
+    .graph-container {
+        @apply flex w-full h-full p-5 justify-center
     }
 
     .chart-inner {

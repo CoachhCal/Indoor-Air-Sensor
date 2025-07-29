@@ -9,8 +9,6 @@ import MetricSelect from '@/components/MetricSelect.vue'
 
 <template>
 
-
-
         <div class="parent-wrapper">
 
             <div class="metric">
@@ -31,7 +29,7 @@ import MetricSelect from '@/components/MetricSelect.vue'
 <style>
 
 .parent-wrapper {
-    @apply flex mt-5 flex-row h-[90vh];
+    @apply flex mt-5 flex-row h-[90vh] max-w-[2000px] justify-center mx-auto;
 }
 
 .metric{

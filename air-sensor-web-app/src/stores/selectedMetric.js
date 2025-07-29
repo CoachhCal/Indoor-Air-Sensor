@@ -21,10 +21,10 @@ export const useMetricStore = defineStore('selectedMetric', () => {
   const unit = computed(() => {
 
     const units = {
-        temperature: '&degC',
+        temperature: '°C',
         humidity: '%',
         pressure: 'hPa',
-        gasResistance: 'k&Omega'
+        gasResistance: 'kΩ'
     }
 
     return units[metric.value] || 'None'
@@ -35,5 +35,5 @@ export const useMetricStore = defineStore('selectedMetric', () => {
     metric.value = newMetric
   }
 
-  return { metric, label, setMetric }
+  return { metric, label, unit, setMetric }
 })

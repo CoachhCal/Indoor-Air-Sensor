@@ -11,6 +11,34 @@ const {
     gasResistanceArray,
     timeStampsArray
 } = allSensorData()
+ 
+const options = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+
+    const optionsShort = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    };
+
+const dateArr = computed(() => timeStampsArray.value)
+
+const firstRecord = computed(() => {
+  const arr = dateArr.value
+  if (!arr) return 'N/A'
+  return new Date(arr[0]).toLocaleString('en-US', optionsShort)
+})
+
+const lastRecord = computed(() => {
+  const arr = dateArr.value
+  if (!arr) return 'N/A'
+  return new Date(arr[arr.length - 1]).toLocaleString('en-US', optionsShort)
+})
 
 const metricStore = useMetricStore()
 
@@ -38,16 +66,7 @@ const averageValue = computed(() => {
 
 const minMaxValue = computed(() => {
 
-    const options = {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
-
     const arr = metricArray.value
-    const dateArr = timeStampsArray
 
     if (!arr.length) {
         return {
@@ -60,8 +79,8 @@ const minMaxValue = computed(() => {
 
     let max = arr[0];
     let min = arr[0];
-    let minDate = dateArr[0]
-    let maxDate = dateArr[0]
+    let minDate = dateArr.value[0]
+    let maxDate = dateArr.value[0]
 
     for (let i = 1; i < arr.length; i++){
         if (arr[i] > max){
@@ -92,19 +111,21 @@ const minMaxValue = computed(() => {
 
         <div class="block">
             <p class="title"> Average {{metricStore.label}} </p>
-            <p class="desc"> {{averageValue}} </p>
+            <p class="desc"> {{averageValue}}{{metricStore.unit}} </p>
+            <p class="date">{{firstRecord}} - {{lastRecord}}</p>
+            
             
         </div>
 
         <div class="block">
             <p class="title"> Highest {{metricStore.label}} </p>
-            <p class="desc"> {{minMaxValue.max}} </p>
+            <p class="desc"> {{minMaxValue.max}}{{metricStore.unit}} </p>
             <p class="date"> {{minMaxValue.maxDate}} </p>
         </div>
 
         <div class="block">
             <p class="title"> Lowest {{metricStore.label}} </p>
-            <p class="desc"> {{minMaxValue.min}} </p>
+            <p class="desc"> {{minMaxValue.min}}{{metricStore.unit}} </p>
             <p class="date"> {{minMaxValue.minDate}} </p>
         </div>
 
