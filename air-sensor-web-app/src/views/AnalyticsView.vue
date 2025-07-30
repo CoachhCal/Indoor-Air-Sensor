@@ -29,7 +29,7 @@ import MetricSelect from '@/components/MetricSelect.vue'
 <style>
 
 .parent-wrapper {
-    @apply flex mt-5 flex-row h-[90vh] max-w-[2000px] justify-center mx-auto;
+    @apply flex mt-5 flex-row h-[80vh] max-w-[2000px] justify-center mx-auto;
 }
 
 .metric{

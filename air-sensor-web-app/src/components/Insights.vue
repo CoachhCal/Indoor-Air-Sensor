@@ -138,11 +138,11 @@ const minMaxValue = computed(() => {
 <style scoped>
 
 .insight-wrapper {
-    @apply flex justify-between min-h-[300px] pt-0 ps-5 pe-5 pb-5
+    @apply flex justify-between pt-5 ps-5 pe-5 pb-5
 }
 
 .block {
-    @apply flex flex-col w-1/3 m-2 border-2 border-blue-500 text-white items-center
+    @apply flex flex-col w-1/3 m-2 rounded-2xl text-white items-center 
 }
 
 .title {
@@ -154,7 +154,7 @@ const minMaxValue = computed(() => {
 }
 
 .date {
-    @apply text-xl m-2
+    @apply text-xl m-2 mt-5
 }
 
 </style>
