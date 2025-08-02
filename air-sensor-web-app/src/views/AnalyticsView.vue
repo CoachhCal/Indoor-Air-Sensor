@@ -29,14 +29,14 @@ import MetricSelect from '@/components/MetricSelect.vue'
 <style>
 
 .parent-wrapper {
-    @apply flex mt-5 flex-row h-[80vh] max-w-[2000px] justify-center mx-auto;
+    @apply flex flex-col mt-[100px] h-[80vh] max-w-[2000px] justify-center items-center mx-auto  xl:flex-row
 }
 
 .metric{
-    @apply flex min-w-[100px] h-full
+    @apply flex mb-2 min-w-[100px] w-[80%] xl:h-full xl:w-fit xl:mb-0
 }
 
 .graph {
-    @apply flex flex-col w-[80%] border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl
+    @apply flex flex-col w-[80%] h-full border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl
 }
 </style>

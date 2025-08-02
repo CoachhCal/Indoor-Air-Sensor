@@ -16,7 +16,7 @@ function onSelectChange(e) {
 
 <template>
 
-    <div class="container">
+    <div class="metric-container">
 
         <button
             @click="onSelectChange"
@@ -52,8 +52,8 @@ function onSelectChange(e) {
 
 <style scoped>
 
-.container {
-    @apply ms-2 me-2 mt-0 flex flex-col justify-evenly mx-auto gap-4 p-5 border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl
+.metric-container {
+    @apply m-0 flex flex-row justify-evenly mx-auto gap-4 p-5 border-4 border-green-900 bg-black w-full bg-opacity-70 rounded-2xl xl:flex-col xl:ms-2 xl:me-2 mt-0 
 }
 
 .metrics {

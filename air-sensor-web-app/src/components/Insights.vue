@@ -1,6 +1,6 @@
 <script setup>
 
-import {ref, watch, computed } from 'vue'
+import {ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import allSensorData from '../composables/allSensorData'
 import { useMetricStore } from '@/stores/selectedMetric'
 
@@ -38,6 +38,20 @@ const lastRecord = computed(() => {
   const arr = dateArr.value
   if (!arr) return 'N/A'
   return new Date(arr[arr.length - 1]).toLocaleString('en-US', optionsShort)
+})
+
+const isXL = ref(window.innerWidth >= 1280)
+
+const updateScreenSize = () => {
+  isXL.value = window.innerWidth >= 1280
+}
+
+onMounted(() => {
+  window.addEventListener('resize', updateScreenSize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenSize)
 })
 
 const metricStore = useMetricStore()
@@ -107,13 +121,12 @@ const minMaxValue = computed(() => {
 
 <template>
 
-    <div class="insight-wrapper">
+    <div v-if="isXL" class="insight-wrapper">
 
         <div class="block">
             <p class="title"> Average {{metricStore.label}} </p>
             <p class="desc"> {{averageValue}}{{metricStore.unit}} </p>
             <p class="date">{{firstRecord}} - {{lastRecord}}</p>
-            
             
         </div>
 
@@ -131,6 +144,43 @@ const minMaxValue = computed(() => {
 
     </div>
 
+    <div v-else class="insight-wrapper">
+
+        <div class="block">
+            <div>
+                <p class="title"> Average {{metricStore.label}} </p>
+                <p class="date">{{firstRecord}} - {{lastRecord}}</p>
+            </div>
+            <div>
+                <p class="desc"> {{averageValue}}{{metricStore.unit}} </p>
+            </div>
+            
+        </div>
+
+        <div class="block">
+            <div>
+                <p class="title"> Highest {{metricStore.label}} </p>
+                <p class="date"> {{minMaxValue.maxDate}} </p>
+            </div>
+            <div>
+                <p class="desc"> {{minMaxValue.max}}{{metricStore.unit}} </p>
+            </div>
+            
+        </div>
+
+        <div class="block">
+            <div>
+                <p class="title"> Lowest {{metricStore.label}} </p>
+                <p class="date"> {{minMaxValue.minDate}} </p>
+            </div>
+            <div>
+                <p class="desc"> {{minMaxValue.min}}{{metricStore.unit}} </p>
+            </div>
+            
+        </div>
+
+    </div>
+
 </template>
 
 
@@ -138,7 +188,7 @@ const minMaxValue = computed(() => {
 <style scoped>
 
 .insight-wrapper {
-    @apply flex justify-between pt-5 ps-5 pe-5 pb-5
+    @apply flex flex-col items-center xl:flex-row xl:justify-between xl:p-5
 }
 
 .block {

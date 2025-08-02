@@ -7,7 +7,6 @@ import Header from './components/Header.vue'
 <template >
   <div class="page-wrapper">
     <Header/>
-    <!-- <RecentAirData /> -->
     <router-view/>
   </div>
 </template>
@@ -22,7 +21,6 @@ body {
 }
 
 .page-wrapper {
-  
   justify-content: center;
   min-height: 100vh;        
   box-sizing: border-box;
