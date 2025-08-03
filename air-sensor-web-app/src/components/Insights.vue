@@ -188,11 +188,11 @@ const minMaxValue = computed(() => {
 <style scoped>
 
 .insight-wrapper {
-    @apply flex flex-col items-center xl:flex-row xl:justify-between xl:p-5
+    @apply flex items-center xl:flex-row xl:justify-between xl:p-5 overflow-x-auto overflow-y-hidden;
 }
 
 .block {
-    @apply flex flex-col w-1/3 m-2 rounded-2xl text-white items-center 
+    @apply flex flex-col flex-shrink-0 w-[300px] m-2 mb-5 rounded-2xl text-white items-center 
 }
 
 .title {

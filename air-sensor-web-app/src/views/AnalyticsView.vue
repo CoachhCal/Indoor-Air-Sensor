@@ -39,4 +39,9 @@ import MetricSelect from '@/components/MetricSelect.vue'
 .graph {
     @apply flex flex-col w-[80%] h-full border-4 border-green-900 bg-black bg-opacity-70 rounded-2xl
 }
+
+.insights-scroll-wrapper {
+  @apply h-[150px] overflow-x-auto overflow-y-hidden;
+}
+
 </style>
