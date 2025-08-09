@@ -7,8 +7,8 @@ const metricStore = useMetricStore()
 
 const selectedMetric = computed(() => metricStore.metric)
 
+//Changes the metric value which updates the graph with the relevant information
 function onSelectChange(e) {
-    console.log(e.target.value)
     metricStore.setMetric(e.target.value)
 }
 
@@ -83,4 +83,5 @@ function onSelectChange(e) {
 .description {
     @apply text-lg text-white
 }
+
 </style>

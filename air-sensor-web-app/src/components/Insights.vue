@@ -13,21 +13,22 @@ const {
 } = allSensorData()
  
 const options = {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+};
 
-    const optionsShort = {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    };
+const optionsShort = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+};
 
 const dateArr = computed(() => timeStampsArray.value)
 
+//retrieve first and last records to have a date range for the graph
 const firstRecord = computed(() => {
   const arr = dateArr.value
   if (!arr) return 'N/A'
@@ -40,6 +41,7 @@ const lastRecord = computed(() => {
   return new Date(arr[arr.length - 1]).toLocaleString('en-US', optionsShort)
 })
 
+// isXL and the 3 functions below are used to determine which template to display
 const isXL = ref(window.innerWidth >= 1280)
 
 const updateScreenSize = () => {
@@ -63,6 +65,7 @@ const metricArray = computed (() => ({
     gasResistance: gasResistanceArray.value
 }[metricStore.metric] ?? []))
 
+// Retrieves average value of the selected metric
 const averageValue = computed(() => {
     const arr = metricArray.value
 
@@ -78,6 +81,8 @@ const averageValue = computed(() => {
     return Math.round(average);
 });
 
+
+// Retrieves the min and max value of selected metrics, with their respective dates
 const minMaxValue = computed(() => {
 
     const arr = metricArray.value
