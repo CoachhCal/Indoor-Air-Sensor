@@ -70,7 +70,7 @@ watch([ () => metricStore.metric, timeStampsArray], () => {
         },
         yaxis: {
             title: {
-                text: metricStore.label,
+                text: metricStore.label + ' (' + metricStore.unit + ')',
                 font: {
                     size: 22
                 }
