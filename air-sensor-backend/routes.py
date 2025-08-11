@@ -14,8 +14,8 @@ load_dotenv()
 
 username = os.getenv("MYSQL_USERNAME")
 password = os.getenv("MYSQL_PASSWORD")
-host = 'localhost'  # or '127.0.0.1'
-port = '3306'        # default MySQL port
+host = 'localhost'
+port = '3306'
 database = os.getenv("MYSQL_DB_NAME")
 
 Base = declarative_base()
@@ -123,7 +123,6 @@ def retrieve_all_data():
 
 
 # CREATE DATABASE indoor_air_sensor_db;
-
 # USE indoor_air_sensor_db;
 
 # CREATE TABLE sensor_data (
