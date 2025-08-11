@@ -193,7 +193,7 @@ const minMaxValue = computed(() => {
 <style scoped>
 
 .insight-wrapper {
-    @apply flex items-center xl:flex-row xl:justify-between xl:p-5 overflow-x-auto overflow-y-hidden;
+    @apply flex items-center xl:flex-row justify-evenly xl:p-5 overflow-x-auto overflow-y-hidden;
 }
 
 .block {
