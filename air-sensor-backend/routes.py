@@ -112,19 +112,3 @@ def retrieve_all_data():
     except Exception as e:
         print(f"Error retrieving all data: {e}")
         return {"error": str(e)}
-
-
-
-
-
-# CREATE DATABASE indoor_air_sensor_db;
-# USE indoor_air_sensor_db;
-
-# CREATE TABLE sensor_data (
-# 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-#     temperature FLOAT,
-#     humidity FLOAT,
-#     pressure FLOAT,
-#     gas_resistance FLOAT,
-#     created_at DATETIME
-#     );
