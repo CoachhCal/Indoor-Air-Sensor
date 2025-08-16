@@ -118,7 +118,6 @@ def retrieve_all_data():
 
 
 # CREATE DATABASE indoor_air_sensor_db;
-
 # USE indoor_air_sensor_db;
 
 # CREATE TABLE sensor_data (
