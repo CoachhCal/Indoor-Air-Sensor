@@ -1,21 +1,16 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base
 from datetime import datetime
-from sqlalchemy import Column, Integer, Float, DateTime
-from sqlalchemy.orm import mapped_column
-from sqlalchemy.orm import Mapped
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine, Integer, Float, DateTime, text
+from sqlalchemy.orm import declarative_base, mapped_column, Mapped, sessionmaker
 from typing import Optional
 from dotenv import load_dotenv
-from sqlalchemy import text
 import os
 
 load_dotenv()
 
 username = os.getenv("MYSQL_USERNAME")
 password = os.getenv("MYSQL_PASSWORD")
-host = 'localhost'  # or '127.0.0.1'
-port = '3306'        # default MySQL port
+host = 'localhost'
+port = '3306'
 database = os.getenv("MYSQL_DB_NAME")
 
 Base = declarative_base()
